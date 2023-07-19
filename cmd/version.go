@@ -7,7 +7,6 @@ import (
 	"github.com/viniciussouzao/go-password-gen-cli/pkg/beauty"
 )
 
-// versionCmd represents the version command
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "show the version of the cli",
