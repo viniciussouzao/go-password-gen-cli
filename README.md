@@ -7,7 +7,7 @@ To install the Password Generator CLI, you can download the latest binary from t
 Alternatively, you can build the binary from source.
 ```
 # First, clone the repository:
-$ git clone
+$ git clone git@github.com:viniciussouzao/go-password-gen-cli.git
 
 # Then, build the binary:
 $ cd go-password-generator-cli
