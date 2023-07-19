@@ -1,0 +1,37 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+
+    - name: Build binaries
+      run: |
+        go build -o password-gen-linux-amd64 generate/main.go
+        GOOS=windows GOARCH=amd64 go build -o password-gen-windows-amd64.exe generate/main.go
+        GOOS=darwin GOARCH=amd64 go build -o password-gen-darwin-amd64 generate/main.go
+
+    - name: Upload binaries
+      uses: actions/upload-artifact@v2
+      with:
+        name: binaries
+        path: |
+          password-gen-linux-amd64
+          password-gen-windows-amd64.exe
+          password-gen-darwin-amd64
