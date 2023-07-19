@@ -27,6 +27,7 @@ func init() {
 
 	// Length flag
 	rootCmd.Flags().IntP("length", "l", 12, "The length of the password")
+	rootCmd.MarkFlagRequired("length")
 
 	// Custom password flags
 	rootCmd.Flags().IntP("uppercase", "U", 0, "The number of uppercase letters")
@@ -37,9 +38,6 @@ func init() {
 	// Feat flags
 	rootCmd.Flags().Bool("clip", false, "Copy the password to the clipboard")
 	rootCmd.Flags().StringP("file", "f", "", "Save the password to a file")
-
-	// Version flag
-	rootCmd.Flags().BoolP("version", "v", false, "Show the version of the cli")
 
 }
 
