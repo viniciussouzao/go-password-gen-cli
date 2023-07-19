@@ -24,8 +24,8 @@ jobs:
     - name: Build binaries
       run: |
         go build -o password-gen-linux-amd64 generate/main.go
-        GOOS=windows GOARCH=amd64 go build -o password-gen-windows-amd64.exe generate/main.go
-        GOOS=darwin GOARCH=amd64 go build -o password-gen-darwin-amd64 generate/main.go
+        GOOS=windows GOARCH=amd64 go build -o password-gen-windows-amd64.exe main.go
+        GOOS=darwin GOARCH=amd64 go build -o password-gen-darwin-amd64 main.go
 
     - name: Upload binaries
       uses: actions/upload-artifact@v2
